@@ -1,31 +1,117 @@
-from flask import Flask, request, jsonify
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Nana Achiaa Ofori-Kuragu</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="landing is-preload">
+    <div id="page-wrapper">
 
-app = Flask(__name__)
+        <!-- Header -->
+        <header id="header" class="alt">
+            <h1><a href="index.html">Nana Achiaa Ofori-Kuragu's Portfolio</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <a href="#" class="icon solid fa-angle-down">Projects</a>
+                        <ul>
+                            <li><a href="project1.html">Project 1</a></li>
+                            <li><a href="project2.html">Project 2</a></li>
+                            <li><a href="project3.html">Project 3</a></li>
+                            <li>
+                                <a href="#">More Projects</a>
+                                <ul>
+                                    <li><a href="project4.html">Project 4</a></li>
+                                    <li><a href="project5.html">Project 5</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html" class="button">Contact Me</a></li>
+                </ul>
+            </nav>
+        </header>
 
-@app.route('/')
-def home():
-    return "Welcome to the Flask App! Use the /predict endpoint to send POST requests."
+        <!-- Banner -->
+        <section id="banner">
+            <h2>Nana Achiaa Ofori-Kuragu's Portfolio</h2>
+            <p>Welcome! Explore my portfolio of projects in data analytics and machine learning. Here, you'll find a range of hands-on projects that bring data to life, showcase machine learning applications, and demonstrate practical solutions to complex analytical challenges. Discover the insights and skills I’ve developed along the way!</p>
+            <ul class="actions special">
+                <li><a href="https://www.linkedin.com/in/nana-achiaa-ofori-kuragu-257056233?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BCzpA%2FwCYSUqvDApIOLP5zQ%3D%3D" class="button primary" target="_blank">GET IN TOUCH</a></li>
+                <li><a href="#projects" class="button">VIEW PROJECTS</a></li>
+            </ul>
+        </section>
 
-@app.route('/predict', methods=['POST'])
-def predict():
-    input_data = request.json
-    renewable_energy_share = input_data.get("renewable_energy_share")
-    electricity_from_renewables = input_data.get("electricity_from_renewables")
-    primary_energy_consumption = input_data.get("primary_energy_consumption")
+                 <!-- Main -->
+        <section id="main" class="container">
 
-    if not all([renewable_energy_share, electricity_from_renewables, primary_energy_consumption]):
-        return jsonify({"error": "Missing input values"}), 400
+            <section class="box special features" id="projects">
+                <div class="features-row">
+                    <section>
+                        <span class="icon solid major fa-chart-bar accent2"></span>
+                        <h3>Tableau Project</h3>
+                        <p>Created an interactive Tableau dashboard to visualize key business metrics and uncover actionable insights.</p>
+                        <a href="https://public.tableau.com/app/profile/nana.achiaa.ofori.kuragu/vizzes" class="button small" target="_blank">VIEW PROJECT</a>
+                    </section>
+                    <section>
+                        <span class="icon solid major fa-database accent3"></span>
+                        <h3>SQL Project 1</h3>
+                        <p>Developed complex SQL queries to extract and analyze data from a large database, supporting business decisions.</p>
+                        <a href="https://github.com/Nachiaa/pizza-challenge" class="button small" target="_blank">VIEW PROJECT</a>
+                    </section>
+                </div>
+                <div class="features-row">
+                    <section>
+                        <span class="icon solid major fa-database accent4"></span>
+                        <h3>SQL Project 2</h3>
+                        <p>Utilized SQL joins and aggregations to perform advanced data analysis for performance reporting.</p>
+                        <a href="https://github.com/Nachiaa/PortfolioProject" class="button small" target="_blank">VIEW PROJECT</a>
+                    </section>
+                    <section>
+                        <span class="icon solid major fa-code accent5"></span>
+                        <h3>R Project</h3>
+                        <p>Analyzed a dataset using R, applying statistical methods to gain insights into trends and patterns.</p>
+                        <a href="https://github.com/Nachiaa/World-Bank-Project/tree/main" class="button small" target="_blank">VIEW PROJECT</a>
+                    </section>
+                </div>
+                <div class="features-row">
+                    <section>
+                        <span class="icon solid major fa-python accent6"></span>
+                        <h3>Python Project</h3>
+                        <p>Built a Python script to automate data cleaning and preprocessing, saving time in data preparation.</p>
+                        <a href="https://github.com/Nachiaa/Employment-Wage-Trends" class="button small" target="_blank">VIEW PROJECT</a>
+                    </section>
+                    <section>
+                        <span class="icon solid major fa-layer-group accent7"></span>
+                        <h3>R Shiny Project</h3>
+                        <p>Developed an interactive R Shiny app for real-time data visualization and user-driven analysis.</p>
+                        <a href="https://github.com/Nachiaa/NYC-Vaccination-Analysis-ShinyApp" class="button small" target="_blank">VIEW PROJECT</a>
+                    </section>
+                </div>
+            </section>
+        </section>
 
-    predicted_access = (0.5 * float(renewable_energy_share)) + \
-                       (0.3 * float(electricity_from_renewables)) + \
-                       (0.2 * float(primary_energy_consumption))
+        <!-- CTA -->
+        <section id="cta">
+            <h2>Stay Updated with My Latest Projects</h2>
+            <p>Subscribe to receive updates on my newest projects and developments in analytics and tech.</p>
+            <form>
+                <div class="row gtr-50 gtr-uniform">
+                    <div class="col-8 col-12-mobilep">
+                        <input type="email" name="email" id="email" placeholder="Email Address" />
+                    </div>
+                    <div class="col-4 col-12-mobilep">
+                        <input type="submit" value="Subscribe" class="fit" />
+                    </div>
+                </div>
+            </form>
+        </section>
 
-    return jsonify({
-        "renewable_energy_share": renewable_energy_share,
-        "electricity_from_renewables": electricity_from_renewables,
-        "primary_energy_consumption": primary_energy_consumption,
-        "predicted_electricity_access": predicted_access
-    })
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=8080)
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="https://www.linkedin.com/in/nana-achiaa-ofori-kuragu-257056233/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                <li><a href="https://github.com/Nachiaa" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
